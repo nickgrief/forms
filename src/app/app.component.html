@@ -1,0 +1,22 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label for="city">City: </label>
+  <input type="text" name="City" id="city" formControlName="city" />
+  <label for="street">Street: </label>
+  <input type="text" name="Street" id="street" formControlName="street" />
+  <label for="house">House: </label>
+  <input type="text" name="House" id="house" formControlName="house" />
+
+  <button type="submit" [disabled]="!form.valid">Submit</button>
+
+  <div formArrayName="phoneNumbers">
+    <h2>Phone Numbers</h2>
+    <button type="button" (click)="addPhoneNumber()">
+      + Add another phone number
+    </button>
+
+    <div *ngFor="let phoneNumber of phoneNumbers.controls; let i = index">
+      <label for="phone-{{ i }}">Phone:</label>
+      <input id="phone-{{ i }}" type="tel" [formControlName]="i" />
+    </div>
+  </div>
+</form>
