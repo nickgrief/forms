@@ -15,8 +15,8 @@
     </button>
 
     <div *ngFor="let phoneNumber of phoneNumbers.controls; let i = index">
-      <label for="phone-{{ i }}">Phone:</label>
-      <input id="phone-{{ i }}" type="tel" [formControlName]="i" />
+      <label [for]="i">Phone:</label>
+      <input [id]="i" type="tel" [formControlName]="i" />
     </div>
   </div>
 </form>
