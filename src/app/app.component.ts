@@ -14,7 +14,7 @@ export class AppComponent {
     phoneNumbers: this.fb.array([]),
   });
 
-  get phoneNumbers() {
+  get phoneNumbers(): FormArray {
     return this.form.get('phoneNumbers') as FormArray;
   }
 
@@ -27,5 +27,5 @@ export class AppComponent {
   onSubmit() {
     console.log(this.form.value);
   }
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 }
